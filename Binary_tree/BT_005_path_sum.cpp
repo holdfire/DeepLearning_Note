@@ -16,7 +16,12 @@ struct TreeNode{
 
 class solution {
 public:
+    // 凡是遇到跟树有关的题，首先想到用使用递归：divide and conquer
     bool hasPathSum(TreeNode* root, int sum){
-
+        if(!root)
+            return false;
+        if(root && !root->left && !root->right)
+            return sum == root->val;
+        return hasPathSum(root->left, sum-root->val) || hasPathSum(root->right, sum-root->val);
     }
 }
