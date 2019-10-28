@@ -1,7 +1,54 @@
-#### 1. Introduction
-This project is about analysis and design of algorithm problems.
+#### 1. 项目简介
+这个项目是关于算法分析和设计的。
+题目主要来源于LeetCode,剑指offer,牛客网等。
+主要包括两大类题目：  
++ 数据结构类：array, linked list, string, binary tree, graph, etc.
++ 算法类：递归与分治，递归与回溯，动态规划，贪心算法等 
+代码用C++语言写的。
 
-The algorithm problems are mainly from LeetCode, nowcoder.com and interview experience.
 
-The codes are written by C++.
+### 2. 解题思路
+##### 2.1 常用的解题思路：
++ 递归与分治(divide and conquer)
++ 递归与回溯(backtracking)
++ 动态规划(dynamic programming)
++ 贪心算法(greedy algorithm)
+
+##### 2.2 遇到复杂问题时：
++ 画图使抽象问题形象化；
++ 举例使抽象问题具体化；
++ 分解使复杂问题简单化；
+
+##### 2.3 从算法的角度思考：
++ 快速排序算法：可以求数组中第k大的元素；
++ 
+
+##### 2.4 从数据结构的角度：
++ 二叉树：天然的递归结构；
++ 搜索二叉树：查找、插入、删除的时间复杂度都是O(logn)；
++ 哈希表：查找的时间复杂度为O(1)，用空间换时间；
++ 栈：可用于二叉树的遍历；
++ 队列：可用于二叉树的层次遍历；
++ 堆：最大(小)堆，可用于维护数组中的前k个元素；
+  
+#### 3. 解题小技巧  
+##### 3.1 题目中隐含的
++ 如果题目说了是有序数组，要利用好这一特性；
++ 如果题目给定数据有范围，也要利用好特性，如构建哈希表或字典；
++ 
+
+##### 3.2 数据结构和算法的
++ 链表：可以设置虚拟的头结点；
+
+
+#### 4. 解题注意事项
+##### 4.1 对于数据结构 
++ 对于一个容器，需要考虑其为空时的情况；
++ 对于int类型的变量，需要考虑0，负数，溢出等特殊情况；
+
+##### 4.2 对于循环的终止条件
+
+
+
+
 
