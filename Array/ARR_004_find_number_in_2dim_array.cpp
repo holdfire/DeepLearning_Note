@@ -1,6 +1,7 @@
 //
 // Created by LiuXing on 2019/10/28.
 // 剑指offer第4题：查找二维数组中的数字
+// 利用矩阵的大小关系，divide and conquer
 
 #include <vector>
 using namespace std;
