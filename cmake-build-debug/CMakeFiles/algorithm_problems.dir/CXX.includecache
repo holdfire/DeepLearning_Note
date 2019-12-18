@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/d/Algorithm/algorithm_problems/Binary_tree/BT_002_Inorder_traversal.cpp
+iostream
+-
+vector
+-
+stack
+-
+

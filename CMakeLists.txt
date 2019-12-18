@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.13)
+project(algorithm_problems)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(algorithm_problems main.cpp Linked_list/LL_001_reverse_linked_list.cpp Array/ARR_001_2sum.cpp Binary_tree/BT_002_Inorder_traversal.cpp Binary_tree/BT_001_preorder_traversal.cpp Binary_tree/BT_003_postorder_traversal.cpp Binary_tree/BT_004_levelorder_traversal.cpp Binary_tree/BT_005_path_sum.cpp Array/ARR_002_rotate_image.cpp Array/ARR_003_repeated_number.cpp Array/ARR_004_find_number_in_2dim_array.cpp String/STR_001_replace_space.cpp Array/ARR_005_rotate_array.cpp math_problems/MATH_001_sqrt.cpp String/STR_002_edit_distance.cpp Linked_list/LL_002_reverse_linked_list_by_K_step.cpp Array/ARR_006_trapping_rain_water.cpp)
