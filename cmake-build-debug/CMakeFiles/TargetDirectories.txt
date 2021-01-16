@@ -1,3 +1,0 @@
-/cygdrive/d/Algorithm/algorithm_problems/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/cygdrive/d/Algorithm/algorithm_problems/cmake-build-debug/CMakeFiles/algorithm_problems.dir
-/cygdrive/d/Algorithm/algorithm_problems/cmake-build-debug/CMakeFiles/edit_cache.dir
