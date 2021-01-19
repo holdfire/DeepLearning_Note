@@ -1,43 +1,47 @@
+// Reference: https://leetcode-cn.com/problems/accounts-merge/solution/tu-jie-yi-ran-shi-bing-cha-ji-by-yexiso-5ncf/
+// 解题思路：
+// (1) 构造并查集：初始的元素是每个vector的索引
+// (2) 合并并查集：合并有共同邮件的，此时需要一个哈希表来记录；
+// (3) 遍历并查集：把各个不相交的集合放到结果vector中
 
 #include <string>
 #include <vector>
 #include <iostream>
 #include <unordered_map>
 #include <algorithm>
-// #include <functional>
-
 using namespace std;
 
-class UnionSet{
-public:
-    vector<int> parent;      // 记录节点的根
-    vector<int> rank;        // 记录根节点的深度，用于优化
-    UnionSet(int n): parent(vector<int>()n), rank(vector<int>(n)){
-        for (int i = 0; i < n; i++)
-        parent[i] = i;
-    }
 
+// Union Find Disjoint Set: 并查集元素保存的是索引
+class Djset{
+public:
+    vector<int> parent;
+    vector<int> rank;
+
+    // 使用了初始化列表的构造函数
+    Djset(int n): parent(vector<int>(n)), rank(vector<int>(n)){
+        for (int i = 0; i < n; i++)
+            parent[i] = i;
+    }
+    // 查找时使用路径压缩
     int find(int x){
-        // 压缩方式：直接指向根节点
-        if (x != parent[x])
+        if (parent[x] != x)
             parent[x] = find(parent[x]);
         return parent[x];
     }
-
+    // 合并操作
     void merge(int x, int y){
         int rootx = find(x);
         int rooty = find(y);
-        if (rootx != rooty){
-            if (rank[rootx] < rank[rooty])
-                swap(rootx, rooty);
-            parent[rooty] = rootx;
-            if (rank[rootx] == rank[rooty])
-                rank[rootx] += 1;
-        }
+        if (rootx == rooty)
+            return;
+        if (rank[rootx] < rank[rooty])
+            swap(rootx, rooty);
+        parent[rooty] = rootx;
+        if (rank[rootx] == rank[rooty])
+            rank[rootx] += 1;
     }
-}
-
-
+};
 
 
 
@@ -47,14 +51,32 @@ vector<vector<string> > accountsMerge(vector<vector<string> >& accounts) {
     // 使用hash[string] = i的字典，key为邮箱地址，value为res中的索引；
     unordered_map<string, int> hash;
     int n = accounts.size();
-    UnionSet ds(n);
-    
-    
+    // 构造并查集
+    Djset ds(n);
 
+    // 合并并查集
+    for(int i = 0; i < accounts.size(); i++){
+        for (int j = 1; j < accounts[i].size(); j++){
+            if (hash.find(accounts[i][j]) != hash.end())
+                ds.merge(i, hash[accounts[i][j]]);
+            hash[accounts[i][j]] = i;
+        }
+    }
+
+    // 遍历并查集，用一个哈希表把并查集不相交的部分分别存储；
+    unordered_map<int, vector<string> > dict;
+    for (auto& [k, v]: hash)
+        dict[ds.find(v)].push_back(k);
+
+    // 处理上述哈希表，排序+插入
+    for (auto& [k, v]: dict){
+        sort(v.begin(), v.end());
+        vector<string> tmp(1, accounts[k][0]);
+        tmp.insert(tmp.end(), v.begin(), v.end());
+        res.push_back(tmp);
+    }
     return res;
 }
-
-
 
 
 
